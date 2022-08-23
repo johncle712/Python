@@ -23,4 +23,10 @@ print(len(aws_list))
 #Remove two specific services by name and print new list
 aws_list.remove("SNS")
 aws_list.remove("SQS")
+print("\nThis prints out our new list with SNS and SQS removed:")
 print(aws_list)
+
+#Print new list with length
+
+print("\nThis prints out the length of our new list:")
+print(len(aws_list))
