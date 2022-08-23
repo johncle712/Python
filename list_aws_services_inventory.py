@@ -19,3 +19,8 @@ print(aws_list)
 #Print the length of the list
 print("\nThis prints out the length of our list:")
 print(len(aws_list))
+
+#Remove two specific services by name and print new list
+aws_list.remove("SNS")
+aws_list.remove("SQS")
+print(aws_list)
