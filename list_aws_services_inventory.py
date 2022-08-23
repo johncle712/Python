@@ -15,3 +15,7 @@ aws_list.append("SNS")
 aws_list.append("SQS")
 aws_list.append("DynamoDB")
 print(aws_list)
+
+#Print the length of the list
+print("\nThis prints out the length of our list:")
+print(len(aws_list))
