@@ -10,20 +10,28 @@
 import string
 import random
 
+#Only these departments are authorized to use this application.
 authorized_dept = ["marketing", "accounting", "finops"]
+
 
 print ("This program will generate a random name for your EC2 instances\n")
 
-ec2_inst = input("How many EC2 instances would you like to create?:\n")
+dept_name = input("Please enter the department that you work in:\n").lower() #Ask user for input and convert to lower
 
-dept_name = input("Please enter the department that you work in:\n").lower()
-
+#Logic for verifying use is in correct group
 if dept_name in authorized_dept:
-    print("Great! Your department is not authorized to use this program!!")
+    ec2_inst = input("How many EC2 instances would you like to create?:\n")
 else:
-    print("You are not authorized to use this program!")
+    print("Your department is not authorized to use this program!!")
     exit()
 
+#input validation to confirm user entered a number
+if not ec2_inst.isdigit():
+    print("Enter valid number!")
+    exit()
 
-print ("hello !", dept_name)
+#If user prints enters a digit, display send welcome message with number of instances
+if ec2_inst.isdigit():
+    print("Hello", dept_name, "Department!", "I see you would like to create", ec2_inst, "instances.")
+
 
