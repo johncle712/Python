@@ -1,11 +1,4 @@
-#Several departments share an AWS environment. You need to ensure that the EC2s are properly named 
-#and are unique so team members can easily tell who the EC2 instances belong to. Use Python to 
-#create your unique EC2 names that the users can then attach to the instances. The Python Script 
-#should:
-
-#1. All the user to input how many EC2 instances they want names for and output the same amount of unique names.
-#2. Allow the user to input the name of their department that is used in the unique name.
-#3. Generate random characters and numbers that will be included in the unique name.
+#EC2 random name generation for week 13 in LUIT
 
 import string
 import random
@@ -13,10 +6,10 @@ import random
 #Only these departments are authorized to use this application.
 authorized_dept = ["marketing", "accounting", "finops"]
 
-
 print ("This program will generate a random name for your EC2 instances\n")
 
-dept_name = input("Please enter the department that you work in:\n").lower() #Ask user for input and convert to lower
+#Ask user for input and convert to lower
+dept_name = input("Please enter the department that you work in:\n").lower() 
 
 #Logic for verifying use is in correct group
 if dept_name in authorized_dept:
@@ -27,11 +20,18 @@ else:
 
 #input validation to confirm user entered a number
 if not ec2_inst.isdigit():
-    print("Enter valid number!")
-    exit()
+    print("Please enter a number!")
 
 #If user prints enters a digit, display send welcome message with number of instances
 if ec2_inst.isdigit():
     print("Hello", dept_name, "Department!", "I see you would like to create", ec2_inst, "instances.")
+    print("\nHere are your randomly generated EC2 instances names: \n")
+    ec2_inst= int(ec2_inst)
 
+#Used to generate random 10 character and intergers
+random_chars = "".join(random.choices(string.ascii_letters+string.digits, k=10))
 
+#loop to concatenate department name and random characters
+for _ in range(ec2_inst):
+    print("Random generated name is: ")
+    print((dept_name + "-" + random_chars),"\n")
