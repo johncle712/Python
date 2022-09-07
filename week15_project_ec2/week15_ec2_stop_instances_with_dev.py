@@ -12,3 +12,4 @@ running={'Name': 'instance-state-name', 'Values': ['running']}
 for each_instance in ec2.describe_instances(Filters=[tags,running])['Reservations']:
     for inst_id in each_instance['Instances']: # grab each instance and store in inst_id
         ec2.stop_instances(InstanceIds=[inst_id['InstanceId']]) #stop instances from dictionary list of inst_id
+        print("The following instances are stopping: ", [inst_id['InstanceId']])
