@@ -12,7 +12,9 @@ createinstance= ec2.create_instances(
             'Tags': [
                 {
                     'Key': 'Name',
-                    'Value': 'dev-environment',                    
+                    'Value': 'dev-environment',
+                },
+                {                    
                     'Key': 'environment',
                     'Value': 'dev',
                 },
